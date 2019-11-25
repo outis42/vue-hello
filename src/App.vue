@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <div>{{ message }}</div>
+    <div>{{ reversedMessage }}</div>
     <div>
       <span v-bind:title="message">
         鼠标悬停几秒钟查看此处动态绑定的提示星系！
@@ -34,6 +35,11 @@ export default {
         { text: "Learning Vue" },
         { text: "Basketball"}
       ]
+    }
+  },
+  computed: {
+    reversedMessage: function() {
+      return this.message.split('').reverse().join('');
     }
   },
   methods: {
