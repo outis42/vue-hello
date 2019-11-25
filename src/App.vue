@@ -9,11 +9,7 @@
       </span>
     </div>
     <div v-if="seen">now you can see me</div>
-    <ol>
-      <li v-for="todo in todos" v-bind:key="todo">
-        {{ todo.text }}
-      </li>
-    </ol>
+    <ItemList :items="todos"/>
     <button v-on:click="reverseMessage">反转消息</button>
     <input v-model="message">
   </div>
@@ -21,11 +17,13 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import ItemList from './components/ItemList.vue'
 
 export default {
   name: 'app',
   components: {
     // HelloWorld
+    ItemList
   },
   data: function (){
     return {
@@ -33,7 +31,8 @@ export default {
       seen: true,
       todos: [
         { text: "Learning JavaScript" },
-        { text: "Learning Vue" }
+        { text: "Learning Vue" },
+        { text: "Basketball"}
       ]
     }
   },
