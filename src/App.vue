@@ -1,17 +1,46 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <div>{{ message }}</div>
+    <div>
+      <span v-bind:title="message">
+        鼠标悬停几秒钟查看此处动态绑定的提示星系！
+      </span>
+    </div>
+    <div v-if="seen">now you can see me</div>
+    <ol>
+      <li v-for="todo in todos" v-bind:key="todo">
+        {{ todo.text }}
+      </li>
+    </ol>
+    <button v-on:click="reverseMessage">反转消息</button>
+    <input v-model="message">
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    // HelloWorld
+  },
+  data: function (){
+    return {
+      message: 'Hello Vue!!',
+      seen: true,
+      todos: [
+        { text: "Learning JavaScript" },
+        { text: "Learning Vue" }
+      ]
+    }
+  },
+  methods: {
+    reverseMessage: function() {
+      this.message = this.message.split('').reverse().join('');
+    }
   }
 }
 </script>
