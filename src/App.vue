@@ -1,67 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <div>{{ message }}</div>
-    <div>{{ reversedMessage }}</div>
-    <div>
-      <span v-bind:title="message">
-        鼠标悬停几秒钟查看此处动态绑定的提示星系！
-      </span>
-    </div>
-    <div v-if="seen">now you can see me</div>
-    <ItemList :items="todos"/>
-    <button v-on:click="reverseMessage">反转消息</button>
-    <input v-model="message">
-    <div>
-      <el-button>默认按钮</el-button>
-      <el-button type="primary">主要按钮</el-button>
-    </div>
-    
+    <h1>Hello App!</h1>
+    <div><router-link to='/button'>Go to Button</router-link></div>
+    <div><router-link to='/layout'>Go to Layout</router-link></div>
+    <router-view/>
   </div>
 </template>
 
-<script>
-// import HelloWorld from './components/HelloWorld.vue'
-import ItemList from './components/ItemList.vue'
-
-export default {
-  name: 'app',
-  components: {
-    // HelloWorld
-    ItemList
-  },
-  data: function (){
-    return {
-      message: 'Hello Vue!!',
-      seen: true,
-      todos: [
-        { text: "Learning JavaScript" },
-        { text: "Learning Vue" },
-        { text: "Basketball"}
-      ]
-    }
-  },
-  computed: {
-    reversedMessage: function() {
-      return this.message.split('').reverse().join('');
-    }
-  },
-  methods: {
-    reverseMessage: function() {
-      this.message = this.message.split('').reverse().join('');
-    }
-  }
+<style> 
+html,
+body {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(88, 115, 254, 0.04);
 }
-</script>
-
-<style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    width: 100%;
+    height: 100%;
+}
+::-webkit-scrollbar {
+  display:none
+}
+.dlbtn{
+	background-color: inherit;color: #409EFF;border: none;
 }
 </style>
