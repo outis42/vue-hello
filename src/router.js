@@ -15,12 +15,22 @@ export default new Router({
             component: resolve => (require(['./views/index.vue'], resolve)),
             children: [
                 {
+                    path: '/',
+                    component: resolve => (require(['./views/home.vue'], resolve))
+                },
+                {
                     path: '/button',
-                    component: resolve => (require(['./views/button.vue'], resolve))
+                    component: resolve => (require(['./views/button.vue'], resolve)),
+                    meta: {
+                        title: 'button'
+                    }
                 },
                 {
                     path: '/layout',
-                    component: resolve =>(require(['./views/layout.vue'], resolve))
+                    component: resolve =>(require(['./views/layout.vue'], resolve)),
+                    meta: {
+                        title: 'layout'
+                    }
                 }
             ]
         },
