@@ -13,6 +13,11 @@
     <ItemList :items="todos"/>
     <button v-on:click="reverseMessage">反转消息</button>
     <input v-model="message">
+    <div>
+      <el-button>默认按钮</el-button>
+      <el-button type="primary">主要按钮</el-button>
+    </div>
+    
   </div>
 </template>
 
